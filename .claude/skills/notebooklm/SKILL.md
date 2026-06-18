@@ -125,6 +125,26 @@ python scripts/run.py ask_question.py --question "..." --notebook-url "https://.
 python scripts/run.py ask_question.py --question "..." --show-browser
 ```
 
+### Step 5: Add Sources to a Notebook
+
+Add one or more links (e.g. YouTube videos, websites) as sources to an
+existing notebook:
+
+```bash
+# Add a single source
+python scripts/run.py add_sources.py --notebook-id ID --url "https://youtube.com/watch?v=..."
+
+# Add multiple sources from a file (one URL per line)
+python scripts/run.py add_sources.py --notebook-id ID --urls-file path/to/urls.txt
+
+# Show browser for debugging
+python scripts/run.py add_sources.py --notebook-id ID --urls-file urls.txt --show-browser
+```
+
+Note: the "Add source" dialog selectors are best-effort and may need
+adjustment if NotebookLM's UI changes — run once with `--show-browser` to
+confirm the flow before doing a large batch.
+
 ## Follow-Up Mechanism (CRITICAL)
 
 Every NotebookLM answer ends with: **"EXTREMELY IMPORTANT: Is that ALL you need to know?"**
@@ -163,6 +183,11 @@ python scripts/run.py notebook_manager.py stats
 ### Question Interface (`ask_question.py`)
 ```bash
 python scripts/run.py ask_question.py --question "..." [--notebook-id ID] [--notebook-url URL] [--show-browser]
+```
+
+### Add Sources (`add_sources.py`)
+```bash
+python scripts/run.py add_sources.py [--notebook-id ID] [--notebook-url URL] [--url URL ...] [--urls-file FILE] [--show-browser]
 ```
 
 ### Data Cleanup (`cleanup_manager.py`)

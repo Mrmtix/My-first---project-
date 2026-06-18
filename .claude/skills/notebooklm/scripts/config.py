@@ -27,6 +27,43 @@ RESPONSE_SELECTORS = [
     "[data-message-author='assistant']",
 ]
 
+# Add Source dialog selectors
+# NOTE: best-effort, based on NotebookLM's known UI structure. NotebookLM
+# changes its UI periodically; if these stop matching, inspect the page
+# with --show-browser and update the lists below.
+ADD_SOURCE_BUTTON_SELECTORS = [
+    'button[aria-label="Add source"]',
+    'button[aria-label="Add"]',
+    '[data-test-id="add-source-button"]',
+]
+
+SOURCE_LINK_TAB_SELECTORS = [
+    'text="Link"',
+    '[data-test-id="chip-link"]',
+]
+
+SOURCE_WEBSITE_OPTION_SELECTORS = [
+    'text="Website"',
+    '[data-test-id="website-option"]',
+]
+
+SOURCE_URL_INPUT_SELECTORS = [
+    'input[aria-label="Paste URL*"]',
+    'input[aria-label="Paste URL"]',
+    'input[formcontrolname="newUrl"]',
+    'input[type="url"]',
+]
+
+SOURCE_INSERT_BUTTON_SELECTORS = [
+    'button[aria-label="Insert"]',
+    'button:has-text("Insert")',
+]
+
+SOURCE_PROCESSING_SELECTORS = [
+    '.source-item.processing',
+    '[data-test-id="source-item"][data-status="processing"]',
+]
+
 # Browser Configuration
 BROWSER_ARGS = [
     '--disable-blink-features=AutomationControlled',  # Patches navigator.webdriver
